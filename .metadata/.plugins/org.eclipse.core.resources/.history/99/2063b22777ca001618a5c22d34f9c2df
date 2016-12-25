@@ -1,0 +1,9 @@
+package entity;
+
+public class Reader {
+	/*java beans*/
+	private String readerid;
+	private String readername;
+	private String password;
+	
+}

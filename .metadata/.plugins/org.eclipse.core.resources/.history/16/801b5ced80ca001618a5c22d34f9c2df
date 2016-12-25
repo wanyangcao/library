@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<constant name="struts.i18n.encoding" value="UTF-8"></constant>
+	<package name="aboutreader" extends="struts-default">
+		<action name="reader_login" class="Action.ReaderAction" method="login">
+			<result name="success">index.jsp</result>
+			<result name="error">wrong.jsp</result>
+		</action>
+	</package>
+	
+</struts>

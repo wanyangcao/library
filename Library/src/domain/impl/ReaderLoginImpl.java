@@ -1,0 +1,11 @@
+package domain.impl;
+
+import entity.Reader;
+import domain.ReaderLogin;
+
+public class ReaderLoginImpl implements ReaderLogin{
+	
+	
+	public boolean login(Reader reader){ 
+	}
+}

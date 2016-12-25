@@ -1,0 +1,6 @@
+package domain;
+import entity.Reader;
+
+public interface ReadLogin {
+	public boolean login(Reader reader);
+}
