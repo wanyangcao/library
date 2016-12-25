@@ -1,0 +1,9 @@
+package dao.impl;
+
+import java.util.List;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import dao.ReaderDao;
+public class ReaderDaoImpl implements ReaderDao{
+	
+}

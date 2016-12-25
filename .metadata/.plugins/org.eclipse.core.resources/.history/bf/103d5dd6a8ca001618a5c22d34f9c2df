@@ -1,0 +1,49 @@
+package dao.impl;
+
+import java.util.List;
+
+import javax.transaction.SystemException;
+import javax.transaction.Transaction;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+
+import entity.Reader;
+import javassist.expr.NewArray;
+import dao.ReaderDao;
+import org.hibernate.cfg.Configuration;
+import org.springframework.transaction.config.TxNamespaceHandler;
+public class ReaderDaoImpl implements ReaderDao{
+	//读取hibernate.cfg.xml文件并且建立SessionFactory
+	SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+	
+	//获取session实例
+	Session session = sessionFactory.openSession();
+	Transaction tx = null;
+	
+	@SuppressWarnings("unchecked")
+	public Reader QueryReader(String readerid) throws IllegalStateException, SystemException{
+		try{
+			//开始事务
+			tx = (Transaction) session.beginTransaction();
+			Reader reader = null;
+			String hql = "from Reader r where r.readerid = ?";
+			List<Reader> readers = session.createQuery(hql).setParameter(0, readerid).list();
+			if(readers.size() != 0){
+				reader = readers.get(0);
+			}
+			//提交事务
+			tx.commit();
+		}
+		catch (Exception e) {
+			//提交失败，回滚事务
+			if(tx != null){
+				tx.rollback();
+			}
+			e.printStackTrace();
+		}finally{
+			session.close();
+		}
+	}
+	
+}

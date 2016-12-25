@@ -1,0 +1,7 @@
+package dao.impl;
+
+import java.util.List;
+import dao.ReaderDao;
+public class ReaderDaoImpl implements ReaderDao{
+	
+}
